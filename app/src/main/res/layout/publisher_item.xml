@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    >
+    <ImageView
+        android:id="@+id/publisher_image"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/barneslogoli"/>
+    <TextView
+        android:id="@+id/publisher_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Nombre del Publisher"
+        android:textStyle="bold"
+        android:textSize="20dp"
+
+        />
+</LinearLayout>
+

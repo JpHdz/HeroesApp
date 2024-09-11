@@ -30,9 +30,7 @@ class HeroesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-
-
-
+//        Enlazamos nuestras views con variables
         setContentView(R.layout.activity_heroes)
         heroRecyclerView = findViewById(R.id.heroes_recyclerview)
 
@@ -41,6 +39,8 @@ class HeroesActivity : AppCompatActivity() {
         val publisherId = intent.getIntExtra("publisherId",0)
         Log.i("HeroesActivity","El Id del publisher es: ${publisherId}")
 
+
+//        Obtenemos nuestro publisher seleccionado
         val publisher = Publisher.publishers.firstOrNull{ publisher -> publisher.id == publisherId}
 
 
@@ -54,10 +54,14 @@ class HeroesActivity : AppCompatActivity() {
 //        publisherTitle.text = publisher?.name
 
         Picasso.get().load(publisher?.image).into(publisherImage)
+//        Si el heroe tiene el publisherId de nuestro id actual se almacena en heroes
         val heroes = Hero.heroes.filter{ hero -> hero.publisherId == publisherId}
 
+
+//        Se carga un recyclerview con la lista de heroes previamente filtrada
         heroRecyclerView.adapter = HeroAdapter(heroes){ hero ->
             val intent = Intent(this@HeroesActivity, HeroDetailActivity::class.java)
+//            Pasamos el id del heroe como extra
             intent.putExtra("heroId",hero.id)
             startActivity(intent)
 

@@ -24,6 +24,7 @@ class HeroDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+//       Enlazamos nuestras views con variables
         setContentView(R.layout.activity_hero_detail)
         heroTextView = findViewById(R.id.hero_name)
         heroDescription = findViewById(R.id.hero_description)
@@ -32,11 +33,12 @@ class HeroDetailActivity : AppCompatActivity() {
         publisherTextView = findViewById(R.id.publisher_name)
         backgroundImage = findViewById(R.id.background_image)
         val heroId = intent.getIntExtra("heroId",0)
+//        Se obtiene el heroe actual con el id pasado como extra
         val hero = Hero.heroes.firstOrNull{ hero: Hero ->
             hero.id == heroId
         }
         val publisherId = hero?.publisherId
-
+//      Cargamos informacion y estilos de forma dinamica
         if(publisherId == 1){
 //            constrainL.setBackgroundColor(Color.parseColor("#f46f72"))
             heroTextView.setTextColor(Color.parseColor("#f46f72"))
